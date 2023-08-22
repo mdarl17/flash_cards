@@ -6,4 +6,8 @@ class Card
         @answer = answer
         @category = category
     end
+
+    def method_missing(method, *args)
+      puts "Sorry, I don't know any #{method} method."
+    end
 end

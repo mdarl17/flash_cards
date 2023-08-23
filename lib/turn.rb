@@ -13,8 +13,4 @@ class Turn
   def feedback
       correct? ? "Correct!" : "Incorrect."
   end
-
-  def method_missing(method, *args)
-    puts "Sorry, I don't know any #{method} method."
-  end
 end

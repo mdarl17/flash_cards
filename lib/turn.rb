@@ -19,10 +19,4 @@ class Turn
   end
 end
 
-card1 = Card.new("Q1", "A1", "C1")
-card2 = Card.new("Q2", "A1", "C1")
-card3 = Card.new("Q3", "A3", "C3")
-
-turn_1 = Turn.new("A2", card3)
-
 

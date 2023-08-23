@@ -39,18 +39,3 @@ class Round
   }.length.to_f / @deck.filter_categories(category).length*100).round(2).to_s + '%'
   end
 end
-
-card_1 = Card.new("Q1", "A1", "C1")
-card_2 = Card.new("Q2", "A1", "C1")
-card_3 = Card.new("Q3", "A3", "C3")
-card_4 = Card.new("Q4", "A4", "C4")
-card_5 = Card.new("Q5", "A6", "C1")
-
-deck = Deck.new([card1, card2, card3])
-
-round_1 = Round.new(deck)
-
-p round_1.deck.cards
-
-puts round_1.percent_correct
-# p round_1

@@ -1,33 +1,21 @@
 require 'pry'
 require './lib/round'
+require 'csv'
 
 def start
-  qa_array = [
-    {
-      q: 'What name is singer-actor Stefani Germanotta better known by?', a: 'Lady Gaga'
-    }, {
-      q: 'What was the very first video ever played on MTV?',
-      a: 'Video killed the radio star'
-    }, {
-      q: 'Which Italian town is the setting for Shakespeare\'s Romeo and Juliet?',
-      a: 'Verona'
-  }, {
-      q: 'Who was the first American woman in space?',
-      a: 'Sally Ride'
-  }, {
-      q: 'Who is the youngest Oscar winner of all time?',
-      a: 'Tatum O\'Neal'
-  }, {
-      q: 'Actor Nicolas Cage is the nephew of what famous director?',
-      a: 'Francis Ford Coppola'
-  }]
 
-  card_1 = Card.new(qa_array[0][:q], qa_array[0][:a], :Music)
-  card_2 = Card.new(qa_array[1][:q], qa_array[1][:a], :Music)
-  card_3 = Card.new(qa_array[2][:q], qa_array[2][:a], :Literature)
-  card_4 = Card.new(qa_array[3][:q], qa_array[3][:a], :History)
-  card_5 = Card.new(qa_array[4][:q], qa_array[4][:a], :Movies)
-  card_6 = Card.new(qa_array[5][:q], qa_array[5][:a], :Movies)
+  CSV::Converters[:symbol] = ->(value) { value.to_sym rescue value }
+
+  questions = CSV.parse(File.read("qa_input.csv"), headers: true).by_col[0]
+  answers = CSV.parse(File.read("qa_input.csv"), headers: true).by_col[1]
+  categories = CSV.parse(File.read("qa_input.csv"), headers: true, converters: :symbol).by_col[2]
+
+  card_1 = Card.new(questions[0], answers[0], categories[0])
+  card_2 = Card.new(questions[1], answers[1], categories[1])
+  card_3 = Card.new(questions[2], answers[2], categories[2])
+  card_4 = Card.new(questions[3], answers[3], categories[3])
+  card_5 = Card.new(questions[4], answers[4], categories[4])
+  card_6 = Card.new(questions[5], answers[5], categories[5])
   deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
   round = Round.new(deck)
   puts ""

@@ -10,8 +10,7 @@ class Turn
   end
 
   def correct?
-      # guess == card.answer
-      guess[1] == card.answer[1]
+      guess == card.answer
   end
 
   def feedback

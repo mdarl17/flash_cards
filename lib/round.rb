@@ -17,6 +17,10 @@ class Round
   def current_card
     @deck.cards[@index]
   end
+  
+  def total_correct
+    @turns.select{|turn| turn.correct?}.length
+  end
 
   def percent_correct
     (@number_correct.to_f / @turns.length*100).round(2).to_s + '%'
@@ -60,14 +64,12 @@ qa_array = [
 }
 ]
 
-# card_1 = Card.new(qa_array[0][:q], qa_array[0][:a], qa_array[0][:c])
-# card_2 = Card.new(qa_array[1][:q], qa_array[1][:a], qa_array[1][:c])
-# card_3 = Card.new(qa_array[2][:q], qa_array[2][:a], qa_array[2][:c])
-# card_4 = Card.new(qa_array[3][:q], qa_array[3][:a], qa_array[3][:c])
-# card_5 = Card.new(qa_array[4][:q], qa_array[4][:a], qa_array[4][:c])
-# card_6 = Card.new(qa_array[5][:q], qa_array[5][:a], qa_array[5][:c])
+card_1 = Card.new(qa_array[0][:q], qa_array[0][:a], qa_array[0][:c])
+card_2 = Card.new(qa_array[1][:q], qa_array[1][:a], qa_array[1][:c])
+card_3 = Card.new(qa_array[2][:q], qa_array[2][:a], qa_array[2][:c])
+card_4 = Card.new(qa_array[3][:q], qa_array[3][:a], qa_array[3][:c])
+card_5 = Card.new(qa_array[4][:q], qa_array[4][:a], qa_array[4][:c])
+card_6 = Card.new(qa_array[5][:q], qa_array[5][:a], qa_array[5][:c])
 
-# deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
-
-# round = Round.new(deck)
-# puts round.turns.length
+deck = Deck.new([card_1, card_2, card_3, card_4, card_5, card_6])
+round = Round.new(deck)

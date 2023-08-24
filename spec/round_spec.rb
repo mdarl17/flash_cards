@@ -25,7 +25,7 @@ describe Round do
       card_5 = Card.new("Q5", "A6", "C1")
       deck_1 = Deck.new([card_1, card_2, card_3, card_4, card_5])
 
-      expect(Round.new(deck_1).deck).to be_a Deck
+      expect(Round.new(deck_1).deck.class).to be_a Deck
     end
 
   describe 'how the game is played' do
@@ -37,7 +37,7 @@ describe Round do
         card_5 = Card.new("Q5", "A6", "C1")
         deck_1 = Deck.new([card_1, card_2, card_3, card_4, card_5])
         round_1 = Round.new(deck_1)
-        expect(round_1.)
+        expect(round_1.take_turn).to be_a Turn
       end
   end
 end

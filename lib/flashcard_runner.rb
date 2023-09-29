@@ -26,7 +26,7 @@ def start
     puts "This is card number #{round.turns.length + 1} of #{round.deck.count}."
     puts ""
     puts "Question: #{round.current_card.question}"
-    user_guess = gets.chomp
+    user_guess = gets.chomp.downcase
     puts round.take_turn(user_guess).feedback
   end
   (round.deck.cards.length).times{ play_game(round) }

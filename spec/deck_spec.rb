@@ -40,7 +40,9 @@ describe Deck do
       deck.add_cards([card_3, card_4])
       expect(deck.count).to eq(4)
     end
-  describe "filter_categories" 
+  end
+
+  describe "filter_categories" do
     it 'can group cards #by_category' do
       card_1 = Card.new("Q1", "A1", "Cat1")
       card_2 = Card.new("Q2", "A2", "Cat1")

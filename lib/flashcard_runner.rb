@@ -36,5 +36,4 @@ def start
         puts "#{cat} - #{round.percent_correct_by_category(cat)}"
       }
 end
-
 start
